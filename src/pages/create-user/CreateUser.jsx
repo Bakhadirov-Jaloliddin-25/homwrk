@@ -70,59 +70,60 @@ const CreateUser = () => {
   };
 
   return (
-    <div className="h-screen w-full flex items-center justify-center bg-gray-200">
-      <form className="w-1/3 bg-white rounded-lg p-6" onSubmit={registerUser}>
-        <input
-          className="w-full mb-3 py-2 px-4 rounded-md outline-none border border-gray-300"
-          type="text"
-          placeholder="Firstname..."
-          ref={firstName}
-        />
-        <input
-          className="w-full mb-3 py-2 px-4 rounded-md outline-none border border-gray-300"
-          type="text"
-          placeholder="Lastname..."
-          ref={lastName}
-        />
-        <input
-          className="w-full mb-3 py-2 px-4 rounded-md outline-none border border-gray-300"
-          type="number"
-          placeholder="Age..."
-          ref={age}
-        />
-        <input
-          className="w-full mb-3 py-2 px-4 rounded-md outline-none border border-gray-300"
-          type="email"
-          placeholder="Email..."
-          defaultValue={"user@gmail.com"}
-          ref={email}
-        />
-        <input
-          className="w-full mb-3 py-2 px-4 rounded-md outline-none border border-gray-300"
-          type="password"
-          placeholder="Password..."
-          defaultValue={"123456"}
-          ref={password}
-        />
-        <input
-          className="w-full mb-3 py-2 px-4 rounded-md outline-none border border-gray-300"
-          type="tel"
-          placeholder="Phone..."
-          ref={phone}
-          defaultValue={"+998944414188"}
-        />
-        <input
-          className="w-full mb-3 py-2 px-4 rounded-md outline-none border border-gray-300"
-          type="text"
-          placeholder="Profession..."
-          ref={profession}
-          defaultValue={"Dasturchi"}
-        />
+    <div className="h-screen flex items-center justify-center bg-gradient-to-b from-purple-600 via-indigo-600 to-gray-600">
+      <form
+        className="w-full max-w-xl bg-white shadow-2xl rounded-3xl p-8 relative overflow-hidden"
+        onSubmit={registerUser}
+      >
+        <div className="absolute -top-16 -right-16 w-40 h-40 bg-gradient-to-r from-pink-500 to-yellow-500 rounded-full blur-3xl opacity-50"></div>
+        <div className="absolute -bottom-16 -left-16 w-40 h-40 bg-gradient-to-r from-green-400 to-blue-500 rounded-full blur-3xl opacity-50"></div>
+
+        <h2 className="text-3xl font-bold text-gray-700 text-center mb-6">
+          {update ? "Yangilash" : "Yangi Foydalanuvchi"}
+        </h2>
+
+        <div className="space-y-5">
+          {[
+            { placeholder: "Ism", ref: firstName, type: "text" },
+            { placeholder: "Familiya", ref: lastName, type: "text" },
+            { placeholder: "Yosh", ref: age, type: "number" },
+            {
+              placeholder: "Email",
+              ref: email,
+              type: "email",
+            },
+            {
+              placeholder: "Parol",
+              ref: password,
+              type: "password",
+            },
+            {
+              placeholder: "Telefon",
+              ref: phone,
+              type: "tel",
+            },
+            {
+              placeholder: "Kasb",
+              ref: profession,
+              type: "text",
+            },
+          ].map(({ placeholder, ref, type, defaultValue }, index) => (
+            <input
+              key={index}
+              type={type}
+              placeholder={placeholder}
+              ref={ref}
+              defaultValue={defaultValue}
+              className="w-full py-3 px-4 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-300 transition duration-300"
+            />
+          ))}
+        </div>
+
         <button
           type="submit"
-          className="w-full mb-3 py-2 px-4 rounded-md outline-none border border-gray-300 bg-blue-500 text-white"
+          className="w-full py-3 mt-6 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold rounded-lg shadow-md hover:shadow-xl hover:scale-105 transform transition-all duration-300"
         >
-          {update ? "Update" : "Create"}
+          {update ? "Yangilash" : "Qo'shish"}
         </button>
       </form>
     </div>
